@@ -28,6 +28,17 @@ class SiteTests(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertIn("Cette page n’existe pas".encode(), response.data)
 
+    def test_contact_alumni_link_present(self):
+        response = self.client.get("/vie-etudiante")
+        self.assertIn(b"https://www.linkedin.com/in/davidadja/", response.data)
+        self.assertIn("Me contacter sur LinkedIn".encode(), response.data)
+        self.assertIn("images/david-adja.jpg".encode(), response.data)
+
+    def test_technology_banner_present(self):
+        response = self.client.get("/")
+        self.assertIn("images/server-network.jpg".encode(), response.data)
+        self.assertIn("Réseaux · Systèmes · Cloud".encode(), response.data)
+
 
 if __name__ == "__main__":
     unittest.main()
