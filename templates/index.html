@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Accueil{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">École Supérieure Africaine des TIC · Abidjan</p>
+      <h1>Ingénieur généraliste <span>en sciences du numérique.</span></h1>
+      <p>Une formation de trois ans pour concevoir des solutions numériques, maîtriser des technologies variées et comprendre leurs enjeux.</p>
+      <a class="button" href="{{ url_for('formation') }}">Découvrir le programme <span aria-hidden="true">→</span></a>
+    </div>
+    <aside class="fact-card" aria-label="Caractéristiques de la formation">
+      <p class="eyebrow">Le cycle en bref</p>
+      <div class="fact"><span>Durée</span><strong>3 ans</strong></div>
+      <div class="fact"><span>Semestres</span><strong>6</strong></div>
+      <div class="fact"><span>Crédits par semestre</span><strong>30</strong></div>
+      <div class="fact"><span>Diplôme visé</span><strong>Ingénieur généraliste</strong></div>
+    </aside>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="section-heading"><p class="eyebrow blue">La formation</p><h2>Comprendre le numérique dans toute sa diversité</h2><p>Le syllabus couvre le développement logiciel, les systèmes et réseaux, les télécommunications, la donnée, l’intelligence artificielle et les enjeux responsables du numérique.</p></div>
+    <div class="cards">
+      <article class="card"><span class="card-index">01</span><h3>Sciences & systèmes</h3><p>Mathématiques, optimisation, algorithmique, programmation, systèmes d’exploitation et réseaux.</p></article>
+      <article class="card"><span class="card-index">02</span><h3>Construire & expérimenter</h3><p>Projets, travaux pratiques et stages jalonnent le parcours pour mettre les acquis en pratique.</p></article>
+      <article class="card"><span class="card-index">03</span><h3>Innover avec responsabilité</h3><p>IA, Big Data, cloud, cybersécurité, éthique et impacts sociétaux complètent les enseignements.</p></article>
+    </div>
+  </div>
+</section>
+<section class="section section-tint">
+  <div class="wrap split">
+    <div><p class="eyebrow blue">Objectif</p><h2>Former des ingénieurs polyvalents et adaptables</h2></div>
+    <p>Le programme vise des professionnels capables d’analyser des problèmes complexes, de développer des solutions adaptées et de collaborer au sein d’équipes pluridisciplinaires dans des secteurs variés.</p>
+  </div>
+</section>
+{% endblock %}

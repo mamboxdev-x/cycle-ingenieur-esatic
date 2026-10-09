@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#092b57">
+  <meta name="description" content="Présentation du cycle ingénieur généraliste en sciences du numérique de l’ESATIC, basée sur le syllabus fourni.">
+  <title>{% block title %}Cycle Ingénieur{% endblock %} | ESATIC</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="{{ url_for('accueil') }}" aria-label="ESATIC — Accueil">
+        <img src="{{ url_for('static', filename='esatic-logo.png') }}" alt="Logo ESATIC">
+        <span><strong>Cycle Ingénieur</strong><small>Sciences du numérique</small></span>
+      </a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a {% if active == 'accueil' %}aria-current="page"{% endif %} href="{{ url_for('accueil') }}">Accueil</a>
+        <a {% if active == 'formation' %}aria-current="page"{% endif %} href="{{ url_for('formation') }}">Formation</a>
+        <a {% if active == 'vie-etudiante' %}aria-current="page"{% endif %} href="{{ url_for('vie_etudiante') }}">Vie étudiante</a>
+      </nav>
+    </div>
+  </header>
+  <main id="contenu">{% block content %}{% endblock %}</main>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div><strong>ESATIC — Cycle Ingénieur</strong><p>Cycle Ingénieur généraliste en sciences du numérique.</p></div>
+      <p class="disclaimer">Projet pédagogique indépendant. Informations présentées d’après le syllabus fourni ; se référer à l’ESATIC pour les informations officielles et à jour.</p>
+    </div>
+    <div class="wrap copyright">Projet étudiant · Flask · <a href="https://www.esatic.ci/" target="_blank" rel="noopener noreferrer">Site officiel de l’ESATIC</a></div>
+  </footer>
+</body>
+</html>

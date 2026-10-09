@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Programme de formation{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="wrap"><p class="eyebrow">Programme académique</p><h1>Six semestres, un parcours progressif</h1><p>Unités d’enseignement et éléments constitutifs repris du syllabus du cycle ingénieur.</p></div></section>
+<section class="section"><div class="wrap">
+  <div class="notice"><strong>À propos des crédits :</strong> chaque semestre du syllabus totalise 30 crédits. Les intitulés et regroupements ci-dessous sont présentés à titre informatif ; l’ESATIC reste la référence pour les maquettes officielles.</div>
+  <div class="year-grid">
+    {% for year in ["Ingénieur 1", "Ingénieur 2", "Ingénieur 3"] %}
+    <a class="year-link" href="#{{ year|replace(' ', '-')|lower }}">{{ year }} <span aria-hidden="true">↓</span></a>
+    {% endfor %}
+  </div>
+  {% for semester in semesters %}
+    {% if loop.first or semesters[loop.index0 - 1].year != semester.year %}
+      {% if not loop.first %}</div>{% endif %}
+      <div class="year-section" id="{{ semester.year|replace(' ', '-')|lower }}">
+      <div class="year-heading"><p class="eyebrow blue">{{ semester.year }}</p><h2>{{ semester.year }} — programme</h2></div>
+    {% endif %}
+    <article class="semester">
+      <div class="semester-heading"><h3>{{ semester.semester }}</h3><span>{{ semester.credits }} crédits</span></div>
+      <div class="table-scroll"><table><thead><tr><th scope="col">Unité d’enseignement</th><th scope="col">Éléments constitutifs</th><th scope="col">Crédits</th></tr></thead><tbody>
+        {% for name, details, credits in semester.units %}
+        <tr><th scope="row">{{ name }}</th><td>{{ details }}</td><td>{{ credits }}</td></tr>
+        {% endfor %}
+      </tbody><tfoot><tr><th colspan="2">Total {{ semester.semester }}</th><td>{{ semester.credits }}</td></tr></tfoot></table></div>
+    </article>
+    {% if loop.last %}</div>{% endif %}
+  {% endfor %}
+</div></section>
+{% endblock %}
